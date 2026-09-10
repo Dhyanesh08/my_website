@@ -4,10 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhyanesh D K | Student Portfolio</title>
 
 ```
+<title>Dhyanesh D K | DSAI Student</title>
+
+<meta name="description"
+      content="Portfolio of Dhyanesh D K, DSAI student at IIIT Dharwad, passionate about Python, SQL, Data Science and Artificial Intelligence.">
+
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root {
+        --bg: #050505;
+        --bg-soft: #0b0b0d;
+        --card: rgba(255,255,255,0.045);
+        --border: rgba(255,255,255,0.10);
+        --text: #f5f5f5;
+        --muted: #9b9ba3;
+        --accent: #ffffff;
+        --accent-soft: rgba(255,255,255,0.08);
+    }
+
     * {
         margin: 0;
         padding: 0;
@@ -16,156 +33,489 @@
     }
 
     body {
-        font-family: Arial, sans-serif;
-        background: #0f172a;
-        color: #e2e8f0;
-        line-height: 1.6;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "DM Sans", sans-serif;
+        overflow-x: hidden;
     }
+
+    /* ---------- BACKGROUND ---------- */
+
+    body::before {
+        content: "";
+        position: fixed;
+        width: 600px;
+        height: 600px;
+        top: -250px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: radial-gradient(
+            circle,
+            rgba(255,255,255,0.09),
+            transparent 65%
+        );
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+        background-size: 60px 60px;
+        mask-image: linear-gradient(to bottom, black, transparent 75%);
+        pointer-events: none;
+        z-index: -2;
+    }
+
+    /* ---------- NAVBAR ---------- */
 
     nav {
         position: fixed;
-        top: 0;
-        width: 100%;
-        background: rgba(15, 23, 42, 0.95);
-        padding: 18px 8%;
+        top: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(920px, calc(100% - 30px));
+        padding: 13px 18px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        background: rgba(10,10,12,0.72);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid var(--border);
+        border-radius: 18px;
         z-index: 1000;
-        border-bottom: 1px solid #334155;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.35);
     }
 
     .logo {
-        font-size: 22px;
-        font-weight: bold;
-        color: #38bdf8;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 17px;
+        letter-spacing: -0.5px;
+    }
+
+    .logo span {
+        color: #888;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 5px;
     }
 
     nav a {
-        color: #e2e8f0;
+        color: #aaa;
         text-decoration: none;
-        margin-left: 25px;
-        font-size: 15px;
+        padding: 9px 13px;
+        border-radius: 10px;
+        font-size: 13px;
+        transition: 0.25s ease;
     }
 
     nav a:hover {
-        color: #38bdf8;
+        color: white;
+        background: var(--accent-soft);
     }
 
+    /* ---------- GENERAL ---------- */
+
     section {
-        padding: 100px 8%;
-        min-height: 70vh;
+        width: min(1050px, 90%);
+        margin: auto;
+        padding: 110px 0;
     }
+
+    .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        color: #bdbdc5;
+        font-size: 12px;
+        background: rgba(255,255,255,0.025);
+        margin-bottom: 22px;
+    }
+
+    .dot {
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 12px white;
+    }
+
+    .section-label {
+        color: #777;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+
+    .section-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(34px, 5vw, 55px);
+        letter-spacing: -2px;
+        margin-bottom: 20px;
+    }
+
+    /* ---------- HERO ---------- */
 
     #home {
         min-height: 100vh;
         display: flex;
         align-items: center;
-        justify-content: center;
-        text-align: center;
+        padding-top: 150px;
+    }
+
+    .hero {
+        width: 100%;
     }
 
     .hero h1 {
-        font-size: clamp(42px, 7vw, 75px);
-        margin-bottom: 15px;
-        color: white;
-    }
-
-    .hero h1 span {
-        color: #38bdf8;
-    }
-
-    .hero p {
-        font-size: 21px;
-        color: #94a3b8;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(58px, 9vw, 105px);
+        line-height: 0.92;
+        letter-spacing: -6px;
+        max-width: 900px;
         margin-bottom: 30px;
     }
 
-    .button {
-        display: inline-block;
-        padding: 12px 25px;
-        background: #38bdf8;
-        color: #0f172a;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
+    .hero h1 span {
+        color: transparent;
+        -webkit-text-stroke: 1px #777;
     }
 
-    .button:hover {
-        background: #7dd3fc;
-    }
-
-    .section-title {
-        font-size: 35px;
-        margin-bottom: 35px;
-        color: #38bdf8;
-    }
-
-    .about {
-        max-width: 800px;
+    .hero-description {
+        max-width: 610px;
+        color: var(--muted);
         font-size: 18px;
-        color: #cbd5e1;
+        line-height: 1.8;
+        margin-bottom: 35px;
     }
 
-    .skills {
+    .buttons {
         display: flex;
-        gap: 20px;
+        gap: 12px;
         flex-wrap: wrap;
     }
 
-    .skill {
-        background: #1e293b;
-        border: 1px solid #334155;
-        padding: 20px 35px;
-        border-radius: 12px;
-        font-size: 18px;
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 13px 20px;
+        border-radius: 11px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        transition: 0.3s ease;
     }
 
-    .projects {
+    .btn-primary {
+        background: white;
+        color: black;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(255,255,255,0.12);
+    }
+
+    .btn-secondary {
+        color: white;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.035);
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255,255,255,0.09);
+        transform: translateY(-3px);
+    }
+
+    .scroll-text {
+        margin-top: 80px;
+        color: #555;
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+
+    /* ---------- ABOUT ---------- */
+
+    .about-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 25px;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 70px;
+        align-items: start;
     }
 
-    .project {
-        background: #1e293b;
-        padding: 25px;
-        border-radius: 12px;
-        border: 1px solid #334155;
+    .about-text {
+        color: #aaa;
+        font-size: 17px;
+        line-height: 1.9;
     }
 
-    .project h3 {
-        color: #38bdf8;
+    .about-text strong {
+        color: white;
+    }
+
+    .education-card {
+        padding: 28px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        border-radius: 18px;
+    }
+
+    .education-card .small {
+        color: #777;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
         margin-bottom: 10px;
     }
 
-    .project p {
-        color: #cbd5e1;
+    .education-card h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 24px;
+        margin-bottom: 8px;
     }
+
+    .education-card p {
+        color: #888;
+        line-height: 1.6;
+    }
+
+    /* ---------- SKILLS ---------- */
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .skill-card {
+        position: relative;
+        padding: 28px;
+        min-height: 150px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        border-radius: 18px;
+        overflow: hidden;
+        transition: 0.3s ease;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255,255,255,0.25);
+        background: rgba(255,255,255,0.065);
+    }
+
+    .skill-number {
+        color: #555;
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .skill-card h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 28px;
+        margin-top: 28px;
+    }
+
+    .skill-card p {
+        color: #777;
+        margin-top: 6px;
+        font-size: 14px;
+    }
+
+    /* ---------- PROJECTS ---------- */
+
+    .project-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 30px;
+        padding: 35px;
+        border: 1px solid var(--border);
+        background:
+            linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.015));
+        border-radius: 22px;
+        overflow: hidden;
+        transition: 0.35s ease;
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255,255,255,0.25);
+    }
+
+    .project-number {
+        color: #666;
+        font-size: 12px;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+
+    .project-card h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 35px;
+        margin-bottom: 12px;
+    }
+
+    .project-card p {
+        color: #999;
+        max-width: 650px;
+        line-height: 1.8;
+    }
+
+    .tech {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+    }
+
+    .tech span {
+        padding: 6px 10px;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        color: #aaa;
+        font-size: 11px;
+    }
+
+    .project-button {
+        align-self: center;
+        white-space: nowrap;
+    }
+
+    /* ---------- CONTACT ---------- */
+
+    .contact-box {
+        text-align: center;
+        padding: 80px 30px;
+        border: 1px solid var(--border);
+        border-radius: 25px;
+        background:
+            radial-gradient(circle at center, rgba(255,255,255,0.07), transparent 60%),
+            var(--card);
+    }
+
+    .contact-box h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(38px, 6vw, 65px);
+        letter-spacing: -3px;
+        margin-bottom: 15px;
+    }
+
+    .contact-box p {
+        color: #888;
+        margin-bottom: 30px;
+    }
+
+    /* ---------- FOOTER ---------- */
 
     footer {
-        text-align: center;
-        padding: 30px;
-        background: #020617;
-        color: #94a3b8;
+        width: min(1050px, 90%);
+        margin: auto;
+        padding: 35px 0 45px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        color: #555;
+        font-size: 12px;
     }
 
-    @media (max-width: 650px) {
+    /* ---------- ANIMATION ---------- */
+
+    .fade-in {
+        animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 700px) {
+
         nav {
-            padding: 15px 5%;
+            top: 10px;
+        }
+
+        nav ul {
+            gap: 0;
         }
 
         nav a {
-            margin-left: 10px;
-            font-size: 13px;
+            padding: 8px;
+            font-size: 11px;
+        }
+
+        .logo {
+            font-size: 14px;
         }
 
         section {
-            padding: 90px 6%;
+            width: 88%;
+            padding: 85px 0;
         }
 
-        .hero p {
-            font-size: 18px;
+        #home {
+            padding-top: 130px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 15vw, 75px);
+            letter-spacing: -4px;
+        }
+
+        .hero-description {
+            font-size: 16px;
+        }
+
+        .about-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .skills-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .project-card {
+            grid-template-columns: 1fr;
+            padding: 25px;
+        }
+
+        .project-card h3 {
+            font-size: 28px;
+        }
+
+        .project-button {
+            justify-self: start;
+        }
+
+        footer {
+            flex-direction: column;
+            gap: 8px;
         }
     }
 </style>
@@ -176,90 +526,243 @@
 <body>
 
 ```
-<nav>
-    <div class="logo">Dhyanesh D K</div>
+<!-- NAVIGATION -->
 
-    <div>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-    </div>
+<nav>
+    <div class="logo">DDK<span>.</span></div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </nav>
 
-<section id="home">
-    <div class="hero">
-        <h1>Hi, I'm <span>Dhyanesh D K</span></h1>
 
-        <p>
-            Student at IIIT Dharwad | DSAI | Semester 1
+<!-- HERO -->
+
+<section id="home">
+    <div class="hero fade-in">
+
+        <div class="eyebrow">
+            <span class="dot"></span>
+            DSAI Student · IIIT Dharwad
+        </div>
+
+        <h1>
+            Dhyanesh<br>
+            <span>D K</span>
+        </h1>
+
+        <p class="hero-description">
+            First-semester DSAI student exploring the world of
+            programming, data, and artificial intelligence.
+            Currently building my skills with Python and SQL.
         </p>
 
-        <a class="button" href="#about">Explore My Portfolio</a>
+        <div class="buttons">
+            <a href="#projects" class="btn btn-primary">
+                View My Work ↓
+            </a>
+
+            <a href="https://github.com/Dhyanesh08"
+               target="_blank"
+               class="btn btn-secondary">
+                GitHub ↗
+            </a>
+        </div>
+
+        <div class="scroll-text">
+            Scroll to explore
+        </div>
+
     </div>
 </section>
+
+
+<!-- ABOUT -->
 
 <section id="about">
-    <h2 class="section-title">About Me</h2>
 
-    <div class="about">
-        <p>
-            Hello! I'm Dhyanesh D K, a first-semester student at
-            IIIT Dharwad, pursuing Data Science and Artificial Intelligence
-            (DSAI).
-        </p>
+    <div class="section-label">01 — About</div>
 
-        <br>
+    <div class="about-grid">
 
-        <p>
-            I am currently building my programming fundamentals and
-            exploring technologies related to data science and artificial
-            intelligence. I enjoy learning new concepts, solving problems,
-            and creating projects.
-        </p>
+        <div>
+            <h2 class="section-title">
+                A student<br>who loves to build.
+            </h2>
+        </div>
+
+        <div>
+            <div class="about-text">
+                <p>
+                    I'm <strong>Dhyanesh D K</strong>, a first-semester
+                    student pursuing
+                    <strong>Data Science & Artificial Intelligence</strong>
+                    at IIIT Dharwad.
+                </p>
+
+                <br>
+
+                <p>
+                    I'm currently strengthening my programming
+                    fundamentals and exploring how code, data and
+                    artificial intelligence can be used to solve
+                    interesting problems.
+                </p>
+
+                <br>
+
+                <p>
+                    This portfolio is a small record of my journey,
+                    projects and things I'm learning along the way.
+                </p>
+            </div>
+
+            <br><br>
+
+            <div class="education-card">
+                <div class="small">Currently studying</div>
+                <h3>IIIT Dharwad</h3>
+                <p>
+                    Data Science & Artificial Intelligence<br>
+                    Semester 1
+                </p>
+            </div>
+        </div>
+
     </div>
+
 </section>
+
+
+<!-- SKILLS -->
 
 <section id="skills">
-    <h2 class="section-title">My Skills</h2>
 
-    <div class="skills">
-        <div class="skill">🐍 Python</div>
-        <div class="skill">🗄️ SQL</div>
-        <div class="skill">📊 Data Science</div>
-        <div class="skill">🤖 Artificial Intelligence</div>
+    <div class="section-label">02 — Skills</div>
+
+    <h2 class="section-title">
+        What I'm learning.
+    </h2>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <div class="skill-number">01</div>
+            <h3>Python</h3>
+            <p>Programming & problem solving</p>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-number">02</div>
+            <h3>SQL</h3>
+            <p>Databases & data management</p>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-number">03</div>
+            <h3>Data Science</h3>
+            <p>Exploring data-driven thinking</p>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-number">04</div>
+            <h3>AI</h3>
+            <p>Beginning my AI journey</p>
+        </div>
+
     </div>
+
 </section>
+
+
+<!-- PROJECTS -->
 
 <section id="projects">
-    <h2 class="section-title">Projects</h2>
 
-    <div class="projects">
+    <div class="section-label">03 — Projects</div>
 
-        <div class="project">
-            <h3>Project 1</h3>
+    <h2 class="section-title">
+        Things I've built.
+    </h2>
+
+    <div class="project-card">
+
+        <div>
+
+            <div class="project-number">
+                PROJECT 001
+            </div>
+
+            <h3>Python Calculator</h3>
+
             <p>
-                Your first project will appear here. Add a description
-                when you have completed a project.
+                A calculator built with Python as part of my
+                programming journey. A simple project focused on
+                practicing Python fundamentals and implementing
+                arithmetic operations.
             </p>
+
+            <div class="tech">
+                <span>Python</span>
+                <span>Programming</span>
+                <span>Beginner Project</span>
+            </div>
+
         </div>
 
-        <div class="project">
-            <h3>Project 2</h3>
-            <p>
-                Another project can be added here as you continue learning
-                Python, SQL, and data science.
-            </p>
+        <div class="project-button">
+            <a href="https://github.com/Dhyanesh08/python-calculator"
+               target="_blank"
+               class="btn btn-primary">
+                View on GitHub ↗
+            </a>
         </div>
 
     </div>
+
 </section>
 
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="contact-box">
+
+        <div class="section-label">
+            04 — Contact
+        </div>
+
+        <h2>Let's connect.</h2>
+
+        <p>
+            Interested in my work or want to connect?
+            Find me on GitHub.
+        </p>
+
+        <a href="https://github.com/Dhyanesh08"
+           target="_blank"
+           class="btn btn-primary">
+            Visit My GitHub ↗
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
 <footer>
-    <p>© 2026 Dhyanesh D K. Built with HTML and hosted on GitHub Pages.</p>
+    <div>© 2026 Dhyanesh D K</div>
+    <div>Built with HTML · Hosted on GitHub Pages</div>
 </footer>
 ```
 
 </body>
 </html>
-
