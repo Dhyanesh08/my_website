@@ -1,535 +1,644 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Dhyanesh D K | DSAI Student</title>
-
-<meta name="description"
-      content="Portfolio of Dhyanesh D K, DSAI student at IIIT Dharwad, passionate about Python, SQL, Data Science and Artificial Intelligence.">
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
-    :root {
-        --bg: #050505;
-        --bg-soft: #0b0b0d;
-        --card: rgba(255,255,255,0.045);
-        --border: rgba(255,255,255,0.10);
-        --text: #f5f5f5;
-        --muted: #9b9ba3;
-        --accent: #ffffff;
-        --accent-soft: rgba(255,255,255,0.08);
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        scroll-behavior: smooth;
-    }
-
-    body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: "DM Sans", sans-serif;
-        overflow-x: hidden;
-    }
-
-    /* ---------- BACKGROUND ---------- */
-
-    body::before {
-        content: "";
-        position: fixed;
-        width: 600px;
-        height: 600px;
-        top: -250px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: radial-gradient(
-            circle,
-            rgba(255,255,255,0.09),
-            transparent 65%
-        );
-        pointer-events: none;
-        z-index: -1;
-    }
-
-    body::after {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background-image:
-            linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-        background-size: 60px 60px;
-        mask-image: linear-gradient(to bottom, black, transparent 75%);
-        pointer-events: none;
-        z-index: -2;
-    }
-
-    /* ---------- NAVBAR ---------- */
-
-    nav {
-        position: fixed;
-        top: 18px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: min(920px, calc(100% - 30px));
-        padding: 13px 18px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: rgba(10,10,12,0.72);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        z-index: 1000;
-        box-shadow: 0 15px 50px rgba(0,0,0,0.35);
-    }
-
-    .logo {
-        font-family: "Space Grotesk", sans-serif;
-        font-weight: 700;
-        font-size: 17px;
-        letter-spacing: -0.5px;
-    }
-
-    .logo span {
-        color: #888;
-    }
-
-    nav ul {
-        display: flex;
-        list-style: none;
-        gap: 5px;
-    }
-
-    nav a {
-        color: #aaa;
-        text-decoration: none;
-        padding: 9px 13px;
-        border-radius: 10px;
-        font-size: 13px;
-        transition: 0.25s ease;
-    }
-
-    nav a:hover {
-        color: white;
-        background: var(--accent-soft);
-    }
-
-    /* ---------- GENERAL ---------- */
-
-    section {
-        width: min(1050px, 90%);
-        margin: auto;
-        padding: 110px 0;
-    }
-
-    .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 7px 12px;
-        border: 1px solid var(--border);
-        border-radius: 100px;
-        color: #bdbdc5;
-        font-size: 12px;
-        background: rgba(255,255,255,0.025);
-        margin-bottom: 22px;
-    }
-
-    .dot {
-        width: 6px;
-        height: 6px;
-        background: white;
-        border-radius: 50%;
-        box-shadow: 0 0 12px white;
-    }
-
-    .section-label {
-        color: #777;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        font-size: 11px;
-        margin-bottom: 12px;
-    }
-
-    .section-title {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: clamp(34px, 5vw, 55px);
-        letter-spacing: -2px;
-        margin-bottom: 20px;
-    }
-
-    /* ---------- HERO ---------- */
-
-    #home {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        padding-top: 150px;
-    }
-
-    .hero {
-        width: 100%;
-    }
-
-    .hero h1 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: clamp(58px, 9vw, 105px);
-        line-height: 0.92;
-        letter-spacing: -6px;
-        max-width: 900px;
-        margin-bottom: 30px;
-    }
-
-    .hero h1 span {
-        color: transparent;
-        -webkit-text-stroke: 1px #777;
-    }
-
-    .hero-description {
-        max-width: 610px;
-        color: var(--muted);
-        font-size: 18px;
-        line-height: 1.8;
-        margin-bottom: 35px;
-    }
-
-    .buttons {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-    }
-
-    .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 13px 20px;
-        border-radius: 11px;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 600;
-        transition: 0.3s ease;
-    }
-
-    .btn-primary {
-        background: white;
-        color: black;
-    }
-
-    .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 35px rgba(255,255,255,0.12);
-    }
-
-    .btn-secondary {
-        color: white;
-        border: 1px solid var(--border);
-        background: rgba(255,255,255,0.035);
-    }
-
-    .btn-secondary:hover {
-        background: rgba(255,255,255,0.09);
-        transform: translateY(-3px);
-    }
-
-    .scroll-text {
-        margin-top: 80px;
-        color: #555;
-        font-size: 11px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-    }
-
-    /* ---------- ABOUT ---------- */
-
-    .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        gap: 70px;
-        align-items: start;
-    }
-
-    .about-text {
-        color: #aaa;
-        font-size: 17px;
-        line-height: 1.9;
-    }
-
-    .about-text strong {
-        color: white;
-    }
-
-    .education-card {
-        padding: 28px;
-        border: 1px solid var(--border);
-        background: var(--card);
-        border-radius: 18px;
-    }
-
-    .education-card .small {
-        color: #777;
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-bottom: 10px;
-    }
-
-    .education-card h3 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 24px;
-        margin-bottom: 8px;
-    }
-
-    .education-card p {
-        color: #888;
-        line-height: 1.6;
-    }
-
-    /* ---------- SKILLS ---------- */
-
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
-    }
-
-    .skill-card {
-        position: relative;
-        padding: 28px;
-        min-height: 150px;
-        border: 1px solid var(--border);
-        background: var(--card);
-        border-radius: 18px;
-        overflow: hidden;
-        transition: 0.3s ease;
-    }
-
-    .skill-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(255,255,255,0.25);
-        background: rgba(255,255,255,0.065);
-    }
-
-    .skill-number {
-        color: #555;
-        font-size: 11px;
-        letter-spacing: 2px;
-    }
-
-    .skill-card h3 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 28px;
-        margin-top: 28px;
-    }
-
-    .skill-card p {
-        color: #777;
-        margin-top: 6px;
-        font-size: 14px;
-    }
-
-    /* ---------- PROJECTS ---------- */
-
-    .project-card {
-        position: relative;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 30px;
-        padding: 35px;
-        border: 1px solid var(--border);
-        background:
-            linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.015));
-        border-radius: 22px;
-        overflow: hidden;
-        transition: 0.35s ease;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(255,255,255,0.25);
-    }
-
-    .project-number {
-        color: #666;
-        font-size: 12px;
-        letter-spacing: 2px;
-        margin-bottom: 15px;
-    }
-
-    .project-card h3 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 35px;
-        margin-bottom: 12px;
-    }
-
-    .project-card p {
-        color: #999;
-        max-width: 650px;
-        line-height: 1.8;
-    }
-
-    .tech {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-top: 22px;
-    }
-
-    .tech span {
-        padding: 6px 10px;
-        border: 1px solid var(--border);
-        border-radius: 7px;
-        color: #aaa;
-        font-size: 11px;
-    }
-
-    .project-button {
-        align-self: center;
-        white-space: nowrap;
-    }
-
-    /* ---------- CONTACT ---------- */
-
-    .contact-box {
-        text-align: center;
-        padding: 80px 30px;
-        border: 1px solid var(--border);
-        border-radius: 25px;
-        background:
-            radial-gradient(circle at center, rgba(255,255,255,0.07), transparent 60%),
-            var(--card);
-    }
-
-    .contact-box h2 {
-        font-family: "Space Grotesk", sans-serif;
-        font-size: clamp(38px, 6vw, 65px);
-        letter-spacing: -3px;
-        margin-bottom: 15px;
-    }
-
-    .contact-box p {
-        color: #888;
-        margin-bottom: 30px;
-    }
-
-    /* ---------- FOOTER ---------- */
-
-    footer {
-        width: min(1050px, 90%);
-        margin: auto;
-        padding: 35px 0 45px;
-        border-top: 1px solid var(--border);
-        display: flex;
-        justify-content: space-between;
-        color: #555;
-        font-size: 12px;
-    }
-
-    /* ---------- ANIMATION ---------- */
-
-    .fade-in {
-        animation: fadeIn 1s ease forwards;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
+    <title>Dhyanesh D K — DSAI</title>
+
+    <meta name="description"
+          content="Dhyanesh D K — DSAI student at IIIT Dharwad. Python, SQL and data-focused projects.">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+        :root {
+            --bg: #050505;
+            --surface: #0b0b0c;
+            --surface-2: #101012;
+            --border: rgba(255,255,255,0.10);
+            --text: #f5f5f5;
+            --muted: #8c8c94;
+            --dim: #55555c;
+            --white: #ffffff;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
-    }
 
-    /* ---------- MOBILE ---------- */
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "DM Sans", sans-serif;
+            overflow-x: hidden;
+        }
 
-    @media (max-width: 700px) {
+        body::before {
+            content: "";
+            position: fixed;
+            width: 700px;
+            height: 700px;
+            top: -350px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: radial-gradient(
+                circle,
+                rgba(255,255,255,0.075),
+                transparent 65%
+            );
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+            background-size: 70px 70px;
+            mask-image: linear-gradient(to bottom, black, transparent 70%);
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        /* ================= NAV ================= */
 
         nav {
-            top: 10px;
-        }
+            position: fixed;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(1050px, calc(100% - 30px));
+            padding: 12px 16px 12px 20px;
 
-        nav ul {
-            gap: 0;
-        }
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-        nav a {
-            padding: 8px;
-            font-size: 11px;
+            background: rgba(9,9,10,0.76);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+
+            border: 1px solid var(--border);
+            border-radius: 17px;
+
+            z-index: 1000;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
         }
 
         .logo {
-            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
         }
+
+        .logo-name {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-subtitle {
+            font-size: 8px;
+            letter-spacing: 1.7px;
+            text-transform: uppercase;
+            color: #68686f;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 3px;
+        }
+
+        nav a {
+            color: #88888f;
+            text-decoration: none;
+            padding: 9px 12px;
+            border-radius: 9px;
+            font-size: 12px;
+            transition: 0.25s ease;
+        }
+
+        nav a:hover {
+            color: white;
+            background: rgba(255,255,255,0.07);
+        }
+
+        /* ================= GENERAL ================= */
 
         section {
-            width: 88%;
-            padding: 85px 0;
+            width: min(1050px, 90%);
+            margin: auto;
+            padding: 125px 0;
         }
 
+        .label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #66666d;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+
+        .label::before {
+            content: "";
+            width: 25px;
+            height: 1px;
+            background: #555;
+        }
+
+        .section-title {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(38px, 5vw, 62px);
+            letter-spacing: -2.8px;
+            line-height: 0.98;
+        }
+
+        /* ================= HERO ================= */
+
         #home {
-            padding-top: 130px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 150px;
+        }
+
+        .hero {
+            width: 100%;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            color: #a4a4aa;
+            font-size: 11px;
+            padding: 8px 13px;
+
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            background: rgba(255,255,255,0.025);
+
+            margin-bottom: 28px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #d5d5d5;
+            box-shadow: 0 0 10px rgba(255,255,255,0.8);
         }
 
         .hero h1 {
-            font-size: clamp(50px, 15vw, 75px);
-            letter-spacing: -4px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(65px, 11vw, 130px);
+            line-height: 0.82;
+            letter-spacing: -8px;
+            max-width: 1000px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 .outline {
+            color: transparent;
+            -webkit-text-stroke: 1px #777;
+        }
+
+        .hero-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 50px;
+            max-width: 950px;
         }
 
         .hero-description {
+            max-width: 510px;
+            color: var(--muted);
             font-size: 16px;
+            line-height: 1.8;
         }
 
-        .about-grid {
-            grid-template-columns: 1fr;
-            gap: 30px;
+        .hero-meta {
+            color: #66666d;
+            font-size: 11px;
+            line-height: 1.8;
+            text-align: right;
+            white-space: nowrap;
         }
 
-        .skills-grid {
-            grid-template-columns: 1fr;
+        .hero-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 32px;
         }
 
-        .project-card {
-            grid-template-columns: 1fr;
-            padding: 25px;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            padding: 12px 18px;
+            border-radius: 10px;
+
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+
+            transition: 0.3s ease;
         }
 
-        .project-card h3 {
-            font-size: 28px;
+        .btn-primary {
+            background: white;
+            color: black;
         }
 
-        .project-button {
-            justify-self: start;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255,255,255,0.10);
         }
+
+        .btn-secondary {
+            color: white;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-3px);
+        }
+
+        .scroll {
+            margin-top: 100px;
+            color: #44444a;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 100px;
+        }
+
+        .about-copy {
+            color: #96969d;
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .about-copy strong {
+            color: white;
+            font-weight: 500;
+        }
+
+        .about-side {
+            border-left: 1px solid var(--border);
+            padding-left: 35px;
+        }
+
+        .info-row {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-row:first-child {
+            padding-top: 0;
+        }
+
+        .info-label {
+            color: #55555c;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .info-value {
+            color: #ddd;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 18px;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills-intro {
+            color: #77777f;
+            max-width: 470px;
+            line-height: 1.7;
+            margin: 18px 0 45px;
+        }
+
+        .skills-list {
+            border-top: 1px solid var(--border);
+        }
+
+        .skill {
+            display: grid;
+            grid-template-columns: 70px 1fr auto;
+            align-items: center;
+            gap: 25px;
+
+            padding: 25px 0;
+            border-bottom: 1px solid var(--border);
+
+            transition: 0.25s ease;
+        }
+
+        .skill:hover {
+            padding-left: 12px;
+        }
+
+        .skill-number {
+            color: #4f4f55;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        .skill-name {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 25px;
+            letter-spacing: -0.8px;
+        }
+
+        .skill-type {
+            color: #626269;
+            font-size: 11px;
+        }
+
+        /* ================= PROJECTS ================= */
+
+        .projects-intro {
+            color: #77777f;
+            margin: 18px 0 45px;
+        }
+
+        .project {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 25px;
+            align-items: start;
+
+            padding: 35px 0;
+            border-top: 1px solid var(--border);
+
+            transition: 0.25s ease;
+        }
+
+        .project:hover {
+            padding-left: 10px;
+        }
+
+        .project:last-child {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-number {
+            color: #55555c;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        .project h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 30px;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #85858c;
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: 600px;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+            margin-top: 17px;
+        }
+
+        .project-tech span {
+            color: #707077;
+            border: 1px solid var(--border);
+            padding: 5px 9px;
+            border-radius: 6px;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        #contact {
+            padding-bottom: 90px;
+        }
+
+        .contact {
+            position: relative;
+            overflow: hidden;
+
+            padding: 70px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(255,255,255,0.08),
+                    transparent 35%
+                ),
+                var(--surface);
+        }
+
+        .contact h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(45px, 7vw, 82px);
+            letter-spacing: -5px;
+            line-height: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .contact p {
+            color: #77777f;
+            max-width: 420px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* ================= FOOTER ================= */
 
         footer {
-            flex-direction: column;
-            gap: 8px;
-        }
-    }
-</style>
-```
+            width: min(1050px, 90%);
+            margin: auto;
 
+            padding: 28px 0 40px;
+            border-top: 1px solid var(--border);
+
+            display: flex;
+            justify-content: space-between;
+
+            color: #44444a;
+            font-size: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        /* ================= ANIMATION ================= */
+
+        .fade {
+            animation: reveal 1s ease forwards;
+        }
+
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                top: 10px;
+                padding: 10px 12px 10px 15px;
+            }
+
+            .logo-name {
+                font-size: 13px;
+            }
+
+            .logo-subtitle {
+                font-size: 6px;
+                letter-spacing: 1.2px;
+            }
+
+            nav ul {
+                gap: 0;
+            }
+
+            nav a {
+                padding: 7px;
+                font-size: 10px;
+            }
+
+            section {
+                width: 88%;
+                padding: 90px 0;
+            }
+
+            #home {
+                padding-top: 140px;
+            }
+
+            .hero h1 {
+                font-size: clamp(58px, 17vw, 90px);
+                letter-spacing: -5px;
+            }
+
+            .hero-bottom {
+                display: block;
+            }
+
+            .hero-meta {
+                text-align: left;
+                margin-top: 25px;
+            }
+
+            .scroll {
+                margin-top: 65px;
+            }
+
+            .about-layout {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .about-side {
+                padding-left: 20px;
+            }
+
+            .skill {
+                grid-template-columns: 40px 1fr;
+                gap: 15px;
+            }
+
+            .skill-type {
+                grid-column: 2;
+                margin-top: -10px;
+            }
+
+            .project {
+                grid-template-columns: 45px 1fr;
+                gap: 15px;
+            }
+
+            .project .btn {
+                grid-column: 2;
+                justify-self: start;
+            }
+
+            .project h3 {
+                font-size: 26px;
+            }
+
+            .contact {
+                padding: 45px 25px;
+            }
+
+            .contact h2 {
+                letter-spacing: -3px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-```
-<!-- NAVIGATION -->
+<!-- ================= NAV ================= -->
 
 <nav>
-    <div class="logo">Dhyanesh D K<span>.</span></div>
+    <div class="logo">
+        <div class="logo-name">Dhyanesh D K</div>
+        <div class="logo-subtitle">DSAI · IIIT Dharwad</div>
+    </div>
 
     <ul>
         <li><a href="#home">Home</a></li>
@@ -541,97 +650,111 @@
 </nav>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <section id="home">
-    <div class="hero fade-in">
 
-        <div class="eyebrow">
-            <span class="dot"></span>
-            DSAI Student · IIIT Dharwad
+    <div class="hero fade">
+
+        <div class="status">
+            <span class="status-dot"></span>
+            DSAI · IIIT Dharwad
         </div>
 
         <h1>
             Dhyanesh<br>
-            <span>D K</span>
+            <span class="outline">D K</span>
         </h1>
 
-        <p class="hero-description">
-            First-semester DSAI student exploring the world of
-            programming, data, and artificial intelligence.
-            Currently building my skills with Python and SQL.
-        </p>
+        <div class="hero-bottom">
 
-        <div class="buttons">
-            <a href="#projects" class="btn btn-primary">
-                View My Work ↓
-            </a>
+            <div>
+                <p class="hero-description">
+                    I build with Python, work with data, and enjoy
+                    turning ideas into simple, useful software.
+                </p>
 
-            <a href="https://github.com/Dhyanesh08"
-               target="_blank"
-               class="btn btn-secondary">
-                GitHub ↗
-            </a>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">
+                        Explore Projects ↓
+                    </a>
+
+                    <a href="https://github.com/Dhyanesh08"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-secondary">
+                        GitHub ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-meta">
+                B.Tech · Data Science & Artificial Intelligence<br>
+                Semester 1 · 2026
+            </div>
+
         </div>
 
-        <div class="scroll-text">
+        <div class="scroll">
             Scroll to explore
         </div>
 
     </div>
+
 </section>
 
 
-<!-- ABOUT -->
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
-    <div class="section-label">01 — About</div>
+    <div class="label">01 — Profile</div>
 
-    <div class="about-grid">
+    <div class="about-layout">
 
         <div>
             <h2 class="section-title">
-                A student<br>who loves to build.
+                Building a<br>
+                foundation.
             </h2>
         </div>
 
         <div>
-            <div class="about-text">
+
+            <div class="about-copy">
                 <p>
                     I'm <strong>Dhyanesh D K</strong>, a first-semester
-                    student pursuing
-                    <strong>Data Science & Artificial Intelligence</strong>
-                    at IIIT Dharwad.
+                    DSAI student at <strong>IIIT Dharwad</strong>.
                 </p>
 
                 <br>
 
                 <p>
-                    I'm currently strengthening my programming
-                    fundamentals and exploring how code, data and
-                    artificial intelligence can be used to solve
-                    interesting problems.
-                </p>
-
-                <br>
-
-                <p>
-                    This portfolio is a small record of my journey,
-                    projects and things I'm learning along the way.
+                    My current focus is on strong programming
+                    fundamentals, problem solving and understanding
+                    how data can be turned into useful insights.
                 </p>
             </div>
 
-            <br><br>
+            <div class="about-side" style="margin-top: 45px;">
 
-            <div class="education-card">
-                <div class="small">Currently studying</div>
-                <h3>IIIT Dharwad</h3>
-                <p>
-                    B.Tech in Data Science & Artificial Intelligence<br>
-                    Semester 1
-                </p>
+                <div class="info-row">
+                    <div class="info-label">Education</div>
+                    <div class="info-value">IIIT Dharwad</div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-label">Degree</div>
+                    <div class="info-value">B.Tech · DSAI</div>
+                </div>
+
+                <div class="info-row">
+                    <div class="info-label">Current stage</div>
+                    <div class="info-value">Semester 1</div>
+                </div>
+
             </div>
+
         </div>
 
     </div>
@@ -639,40 +762,39 @@
 </section>
 
 
-<!-- SKILLS -->
+<!-- ================= SKILLS ================= -->
 
 <section id="skills">
 
-    <div class="section-label">02 — Skills</div>
+    <div class="label">02 — Skills</div>
 
     <h2 class="section-title">
-        What I'm learning.
+        Current toolkit.
     </h2>
 
-    <div class="skills-grid">
+    <p class="skills-intro">
+        A focused set of technologies I'm currently using and
+        developing through coursework and projects.
+    </p>
 
-        <div class="skill-card">
+    <div class="skills-list">
+
+        <div class="skill">
             <div class="skill-number">01</div>
-            <h3>Python</h3>
-            <p>Programming & problem solving</p>
+            <div class="skill-name">Python</div>
+            <div class="skill-type">Programming</div>
         </div>
 
-        <div class="skill-card">
+        <div class="skill">
             <div class="skill-number">02</div>
-            <h3>SQL</h3>
-            <p>Databases & data management</p>
+            <div class="skill-name">SQL</div>
+            <div class="skill-type">Databases</div>
         </div>
 
-        <div class="skill-card">
+        <div class="skill">
             <div class="skill-number">03</div>
-            <h3>Data Science</h3>
-            <p>Exploring data-driven thinking</p>
-        </div>
-
-        <div class="skill-card">
-            <div class="skill-number">04</div>
-            <h3>AI</h3>
-            <p>Beginning my AI journey</p>
+            <div class="skill-name">Data Science</div>
+            <div class="skill-type">Data & Analysis</div>
         </div>
 
     </div>
@@ -680,103 +802,113 @@
 </section>
 
 
-<!-- PROJECTS -->
+<!-- ================= PROJECTS ================= -->
 
 <section id="projects">
 
-    <div class="section-label">03 — Projects</div>
+    <div class="label">03 — Selected Work</div>
 
     <h2 class="section-title">
-        Things I've built.
+        Built so far.
     </h2>
 
-    <div class="project-card">
+    <p class="projects-intro">
+        Small projects, real code, steady progress.
+    </p>
+
+    <div class="project">
+
+        <div class="project-number">
+            001
+        </div>
 
         <div>
-
-            <div class="project-number">
-                PROJECT 001
-            </div>
 
             <h3>Python Calculator</h3>
 
             <p>
-                A calculator built with Python as part of my
-                programming journey. A simple project focused on
-                practicing Python fundamentals and implementing
-                arithmetic operations.
+                A simple command-line calculator created to practice
+                Python fundamentals, program structure and arithmetic
+                operations.
             </p>
 
-            <div class="tech">
+            <div class="project-tech">
                 <span>Python</span>
-                <span>Programming</span>
-                <span>Beginner Project</span>
+                <span>CLI</span>
+                <span>Fundamentals</span>
             </div>
 
         </div>
 
-        <div class="project-button">
-            <a href="https://github.com/Dhyanesh08/python-calculator"
-               target="_blank"
-               class="btn btn-primary">
-                View on GitHub ↗
-            </a>
-        </div>
+        <a href="https://github.com/Dhyanesh08/python-calculator"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-secondary">
+            GitHub ↗
+        </a>
 
     </div>
 
 </section>
 
 
-<!-- CONTACT -->
+<!-- ================= CONTACT ================= -->
 
 <section id="contact">
 
-    <div class="contact-box">
+    <div class="contact">
 
-        <div class="section-label">
+        <div class="label">
             04 — Contact
         </div>
 
-        <h2>Let's connect.</h2>
+        <h2>
+            Let's<br>
+            connect.
+        </h2>
 
         <p>
-            Interested in my work or want to connect?
-            Find me on GitHub.
+            Find my work, projects and professional profile through
+            the links below.
         </p>
 
-        <a href="https://github.com/Dhyanesh08"
-           target="_blank"
-           class="btn btn-primary">
-            Visit My GitHub ↗
-        </a>
+        <div class="contact-links">
 
-        <a href="https://www.linkedin.com/in/dhyanesh-d-k-4717193ba/"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-primary">
-            LinkedIn ↗
-        </a>
-        
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dhyanesh0524@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary">
-          Email Me ↗
-       </a>
+            <a href="https://github.com/Dhyanesh08"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn-primary">
+                GitHub ↗
+            </a>
+
+            <a href="https://www.linkedin.com/in/dhyanesh-d-k-4717193ba/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn-secondary">
+                LinkedIn ↗
+            </a>
+
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dhyanesh0524@gmail.com"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn-secondary">
+                Email ↗
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
     <div>© 2026 Dhyanesh D K</div>
-    <div>Built with HTML · Hosted on GitHub Pages</div>
+    <div>IIIT Dharwad · DSAI</div>
 </footer>
-```
 
 </body>
 </html>
+```
