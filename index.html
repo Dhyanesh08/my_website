@@ -1,30 +1,265 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>Dhyanesh D K | Student Portfolio</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 80px 20px;
-            background: #f5f5f5;
+```
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: #e2e8f0;
+        line-height: 1.6;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        padding: 18px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        border-bottom: 1px solid #334155;
+    }
+
+    .logo {
+        font-size: 22px;
+        font-weight: bold;
+        color: #38bdf8;
+    }
+
+    nav a {
+        color: #e2e8f0;
+        text-decoration: none;
+        margin-left: 25px;
+        font-size: 15px;
+    }
+
+    nav a:hover {
+        color: #38bdf8;
+    }
+
+    section {
+        padding: 100px 8%;
+        min-height: 70vh;
+    }
+
+    #home {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px, 7vw, 75px);
+        margin-bottom: 15px;
+        color: white;
+    }
+
+    .hero h1 span {
+        color: #38bdf8;
+    }
+
+    .hero p {
+        font-size: 21px;
+        color: #94a3b8;
+        margin-bottom: 30px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 12px 25px;
+        background: #38bdf8;
+        color: #0f172a;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+
+    .button:hover {
+        background: #7dd3fc;
+    }
+
+    .section-title {
+        font-size: 35px;
+        margin-bottom: 35px;
+        color: #38bdf8;
+    }
+
+    .about {
+        max-width: 800px;
+        font-size: 18px;
+        color: #cbd5e1;
+    }
+
+    .skills {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .skill {
+        background: #1e293b;
+        border: 1px solid #334155;
+        padding: 20px 35px;
+        border-radius: 12px;
+        font-size: 18px;
+    }
+
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+
+    .project {
+        background: #1e293b;
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid #334155;
+    }
+
+    .project h3 {
+        color: #38bdf8;
+        margin-bottom: 10px;
+    }
+
+    .project p {
+        color: #cbd5e1;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px;
+        background: #020617;
+        color: #94a3b8;
+    }
+
+    @media (max-width: 650px) {
+        nav {
+            padding: 15px 5%;
         }
 
-        h1 {
-            color: #222;
+        nav a {
+            margin-left: 10px;
+            font-size: 13px;
         }
 
-        p {
-            color: #555;
+        section {
+            padding: 90px 6%;
         }
-    </style>
+
+        .hero p {
+            font-size: 18px;
+        }
+    }
+</style>
+```
+
 </head>
 
 <body>
-    <h1>Welcome to My Website! 🎉</h1>
-    <p>My website is successfully hosted on GitHub Pages.</p>
+
+```
+<nav>
+    <div class="logo">Dhyanesh D K</div>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+    </div>
+</nav>
+
+<section id="home">
+    <div class="hero">
+        <h1>Hi, I'm <span>Dhyanesh D K</span></h1>
+
+        <p>
+            Student at IIIT Dharwad | DSAI | Semester 1
+        </p>
+
+        <a class="button" href="#about">Explore My Portfolio</a>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about">
+        <p>
+            Hello! I'm Dhyanesh D K, a first-semester student at
+            IIIT Dharwad, pursuing Data Science and Artificial Intelligence
+            (DSAI).
+        </p>
+
+        <br>
+
+        <p>
+            I am currently building my programming fundamentals and
+            exploring technologies related to data science and artificial
+            intelligence. I enjoy learning new concepts, solving problems,
+            and creating projects.
+        </p>
+    </div>
+</section>
+
+<section id="skills">
+    <h2 class="section-title">My Skills</h2>
+
+    <div class="skills">
+        <div class="skill">🐍 Python</div>
+        <div class="skill">🗄️ SQL</div>
+        <div class="skill">📊 Data Science</div>
+        <div class="skill">🤖 Artificial Intelligence</div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects">
+
+        <div class="project">
+            <h3>Project 1</h3>
+            <p>
+                Your first project will appear here. Add a description
+                when you have completed a project.
+            </p>
+        </div>
+
+        <div class="project">
+            <h3>Project 2</h3>
+            <p>
+                Another project can be added here as you continue learning
+                Python, SQL, and data science.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Dhyanesh D K. Built with HTML and hosted on GitHub Pages.</p>
+</footer>
+```
+
 </body>
 </html>
+
